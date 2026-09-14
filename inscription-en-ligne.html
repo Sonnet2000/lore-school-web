@@ -150,6 +150,12 @@ img{max-width:100%;display:block;}
   box-shadow:var(--shadow-lg);
   padding:26px 20px 30px;
 }
+/* Réserve l'espace nécessaire pour que le bandeau Précédent/Suivant fixe
+   (voir .form-nav) ne cache jamais les derniers éléments d'une étape sur
+   mobile. Correction purement visuelle. */
+@media(max-width:719px){
+  .card{padding-bottom:calc(110px + var(--safe-b));}
+}
 @media(min-width:600px){.card{padding:36px 40px 42px;}}
 
 .step-head{margin-bottom:22px;}
