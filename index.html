@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" onerror="this.remove()">
 <style>
 /* =========================================================================
-   DESIGN TOKENS — même famille visuelle que inscription-en-ligne.html,
+   JETONS DE DESIGN — même famille visuelle que inscription-en-ligne.html,
    pour que le catalogue et le formulaire d'inscription se sentent comme
    une seule et même plateforme.
 ========================================================================= */
@@ -53,7 +53,7 @@ header.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba
 .brand img{height:34px;width:34px;object-fit:contain;flex-shrink:0}
 .brand-name{font-family:var(--font-display);font-weight:800;color:#fff;font-size:14.5px;line-height:1.2;white-space:nowrap}
 .brand-name span{display:block;font-size:10px;font-weight:600;color:var(--cyan-400);letter-spacing:.03em;white-space:nowrap}
-nav.nav-links{display:flex;gap:22px}
+nav.nav-links{display:flex;gap:20px}
 nav.nav-links a{color:rgba(255,255,255,.8);font-size:13.5px;font-weight:600;position:relative;padding:4px 0}
 nav.nav-links a::after{content:'';position:absolute;left:0;bottom:-3px;width:0;height:2px;background:var(--cyan-400);transition:width .25s}
 nav.nav-links a:hover{color:#fff}
@@ -72,17 +72,23 @@ nav.nav-links a:hover::after{width:100%}
 .btn-sm{padding:9px 18px;font-size:12.5px}
 .burger{display:none;flex-direction:column;gap:5px;width:24px}
 .burger span{height:2px;background:#fff;border-radius:2px}
-@media(max-width:900px){
+@media(max-width:960px){
   nav.nav-links{display:none}
   .nav-actions .btn:not(.btn-sm){display:none}
+  .nav-actions .btn-ghost-dark{display:none}
   .burger{display:flex}
   nav.nav-links.mobile-open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--navy-900);padding:18px 24px;gap:16px;border-top:1px solid rgba(255,255,255,.08)}
 }
+@media(max-width:420px){
+  .brand-name{font-size:12.5px}
+  .brand-name span{font-size:9px}
+  .nav-inner{padding:11px 16px}
+}
 
-/* ══ HERO ══ */
+/* ══ HÉRO ══ */
 .hero{position:relative;background:linear-gradient(160deg,var(--navy-950) 0%,var(--navy-900) 55%,#0d2450 100%);color:#fff;padding:150px 0 96px;overflow:hidden}
 .hero-lines{position:absolute;inset:0;opacity:.5;pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center;position:relative;z-index:2}
+.hero-grid{max-width:680px;position:relative;z-index:2}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:700;color:var(--cyan-400);margin-bottom:20px}
 .eyebrow i{width:20px;height:2px;background:var(--cyan-400);display:inline-block}
 .hero h1{font-size:clamp(34px,5vw,58px);line-height:1.06;color:#fff;margin-bottom:20px}
@@ -92,13 +98,6 @@ nav.nav-links a:hover::after{width:100%}
 .hero-points{display:flex;flex-direction:column;gap:12px}
 .hero-point{display:flex;align-items:center;gap:10px;font-size:13.5px;color:rgba(255,255,255,.82)}
 .hero-point .dot{width:7px;height:7px;border-radius:50%;background:var(--cyan-400);flex-shrink:0}
-.hero-panel{position:relative;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);padding:30px;backdrop-filter:blur(6px)}
-.hero-panel .code-line{font-family:var(--font-mono);font-size:13px;color:var(--cyan-300);opacity:.9;margin-bottom:14px;white-space:pre-wrap;line-height:1.7}
-.hero-panel .code-line b{color:var(--gold-400);font-weight:600}
-.hero-panel .code-line .s{color:#9ad9c2}
-.hero-panel hr{border:none;border-top:1px solid rgba(255,255,255,.12);margin:16px 0}
-.hero-panel .panel-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,.68);padding:8px 0}
-.hero-panel .panel-row b{color:#fff;font-weight:700}
 
 /* ══ SECTIONS ══ */
 section{padding:88px 0;position:relative}
@@ -139,7 +138,7 @@ section{padding:88px 0;position:relative}
 .course-card .c-actions{display:flex;gap:10px;margin-top:2px}
 .course-card .c-actions .btn{flex:1;padding:10px 14px;font-size:12.5px}
 
-/* Steps */
+/* Étapes */
 .steps-list{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
 .steps-list.steps-5{grid-template-columns:repeat(5,1fr)}
 @media(max-width:1080px){.steps-list.steps-5{grid-template-columns:repeat(3,1fr)}}
@@ -164,13 +163,13 @@ section{padding:88px 0;position:relative}
 
 /* Footer */
 footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;font-size:12.5px}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .footer-inner a{color:rgba(255,255,255,.7)}
 .footer-inner a:hover{color:#fff}
 
-/* Toast (contact fallback) */
-.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,120%);background:var(--navy-950);color:#fff;padding:13px 22px;border-radius:999px;font-size:13.5px;font-weight:600;box-shadow:var(--shadow-lg);z-index:2000;transition:transform .35s cubic-bezier(.2,.8,.3,1)}
-.toast.show{transform:translate(-50%,0)}
+@media(max-width:900px){
+  .mission-grid,.contact-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -185,10 +184,12 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
       <a href="#mission">L'école</a>
       <a href="#cours">Nos cours</a>
       <a href="#inscription">Inscription</a>
-      <a href="test-evaluation.html">Tès evalyasyon</a>
+      <a href="test-evaluation.html">Test d'évaluation</a>
+      <a href="espas-elev.html">Espace Étudiant</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-actions">
+      <a href="espas-elev.html" class="btn btn-ghost-dark btn-sm">Espace Étudiant</a>
       <a href="inscription-en-ligne.html" class="btn btn-cyan btn-sm">S'inscrire</a>
       <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -210,25 +211,18 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
   </svg>
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow"><i></i>OKAP, AYITI</span>
-      <h1>Aprann konpetans <span class="accent">enfòmatik</span> ki louvri pòt travay.</h1>
-      <p class="lead">Loré Fondation fòme jèn ak adilt nan Bureautique, Design Graphik, Pwogramasyon ak Antretyen Rezo — ak fòmatè kalifye, nan yon anviwònman ki fèt pou w reyisi.</p>
+      <span class="eyebrow"><i></i>CAP-HAÏTIEN, HAÏTI</span>
+      <h1>Apprenez des <span class="accent">compétences informatiques</span> qui ouvrent des portes.</h1>
+      <p class="lead">Loré Fondation forme jeunes et adultes en Bureautique, Design Graphique, Programmation et Maintenance Réseaux — avec des formateurs qualifiés, dans un environnement pensé pour votre réussite.</p>
       <div class="hero-ctas">
-        <a href="#cours" class="btn btn-cyan">Wè kou yo</a>
-        <a href="inscription-en-ligne.html" class="btn btn-ghost-dark">Enskri kounye a</a>
+        <a href="#cours" class="btn btn-cyan">Voir les cours</a>
+        <a href="inscription-en-ligne.html" class="btn btn-ghost-dark">S'inscrire maintenant</a>
       </div>
       <div class="hero-points">
-        <div class="hero-point"><span class="dot"></span>Fòmasyon pratik, oryante sou travay reyèl</div>
-        <div class="hero-point"><span class="dot"></span>Klas an semèn ak nan wikenn disponib</div>
-        <div class="hero-point"><span class="dot"></span>Enskripsyon an liy — repons rapid</div>
+        <div class="hero-point"><span class="dot"></span>Formation pratique, orientée vers de vrais métiers</div>
+        <div class="hero-point"><span class="dot"></span>Cours en semaine et le week-end disponibles</div>
+        <div class="hero-point"><span class="dot"></span>Inscription en ligne — réponse rapide</div>
       </div>
-    </div>
-    <div class="hero-panel">
-      <div class="code-line"><b>const</b> etidyan = {<br>&nbsp;&nbsp;objektif: <span class="s">"aprann yon metye"</span>,<br>&nbsp;&nbsp;lekol: <span class="s">"Loré Fondation"</span>,<br>&nbsp;&nbsp;pare: <b>true</b><br>};</div>
-      <hr>
-      <div class="panel-row"><span>Domèn fòmasyon</span><b>Enfòmatik</b></div>
-      <div class="panel-row"><span>Kote</span><b>Cap-Haïtien</b></div>
-      <div class="panel-row"><span>Orè</span><b>Semèn / Wikenn</b></div>
     </div>
   </div>
 </section>
@@ -237,17 +231,17 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
   <div class="wrap">
     <div class="mission-grid reveal-group">
       <div class="reveal-item mission-card">
-        <p class="quote">Nou kwè yon <span>konpetans nan men w</span> se pi bon zouti pou chanje lavi w — se sa k ap gide chak kou nou bay.</p>
-        <p class="sig">— Direksyon Loré Fondation</p>
+        <p class="quote">Nous croyons qu'une <span>compétence entre vos mains</span> est le meilleur outil pour changer une vie — c'est ce qui guide chacun de nos cours.</p>
+        <p class="sig">— Direction de Loré Fondation</p>
       </div>
       <div class="reveal-item">
-        <span class="eyebrow eyebrow-navy"><i></i>SOU CENTRE DE FORMATION EN INFORMATIQUE LA</span>
-        <h2>Yon fòmasyon solid, pou yon avni nan teknoloji.</h2>
-        <p style="color:var(--ink-600);font-size:15px;margin:14px 0 24px">Antanke yon branch nan Loré Fondation, Centre de Formation en Informatique bay moun ki abite Cap-Haïtien ak zòn li yo aksè a fòmasyon enfòmatik ki abòdab e ki gen kalite — pou etidyan, pwofesyonèl k ap chanje karyè, ak nenpòt moun ki vle mete konpetans dijital nan men yo.</p>
+        <span class="eyebrow eyebrow-navy"><i></i>À PROPOS DU CENTRE DE FORMATION EN INFORMATIQUE</span>
+        <h2>Une formation solide, pour un avenir dans la technologie.</h2>
+        <p style="color:var(--ink-600);font-size:15px;margin:14px 0 24px">En tant que branche de Loré Fondation, le Centre de Formation en Informatique donne aux habitants de Cap-Haïtien et de ses environs accès à une formation informatique abordable et de qualité — pour les étudiants, les professionnels en reconversion, et toute personne souhaitant acquérir des compétences numériques concrètes.</p>
         <div class="value-list">
-          <div class="value-item"><div class="ico">🎯</div><div><h4>Fòmasyon oryante-pratik</h4><p>Chak kou bati sou egzèsis konkrè, pa sèlman teyori.</p></div></div>
-          <div class="value-item"><div class="ico">🤝</div><div><h4>Akonpayman pèsonalize</h4><p>Fòmatè disponib pou reponn kesyon ak gide chak etidyan.</p></div></div>
-          <div class="value-item"><div class="ico">📜</div><div><h4>Sètifika a lafen kou</h4><p>Yon prèv konkrè konpetans ou ka montre yon anplwayè.</p></div></div>
+          <div class="value-item"><div class="ico">🎯</div><div><h4>Formation orientée pratique</h4><p>Chaque cours repose sur des exercices concrets, pas seulement sur la théorie.</p></div></div>
+          <div class="value-item"><div class="ico">🤝</div><div><h4>Accompagnement personnalisé</h4><p>Des formateurs disponibles pour répondre aux questions et guider chaque étudiant.</p></div></div>
+          <div class="value-item"><div class="ico">📜</div><div><h4>Certificat en fin de cours</h4><p>Une preuve concrète de compétence à montrer à un employeur.</p></div></div>
         </div>
       </div>
     </div>
@@ -257,11 +251,11 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
 <section id="cours">
   <div class="wrap">
     <div class="section-head reveal-group"><div class="reveal-item">
-      <span class="eyebrow eyebrow-navy"><i></i>KATALÒG KOU</span>
-      <h2>Chwazi fòmasyon ki fè pou ou.</h2>
-      <p>Tout kou yo louvri pou enskripsyon. Klike sou yon kou pou wè plis detay oswa enskri dirèkteman.</p>
+      <span class="eyebrow eyebrow-navy"><i></i>CATALOGUE DE COURS</span>
+      <h2>Choisissez la formation qui vous convient.</h2>
+      <p>Tous les cours sont ouverts aux inscriptions. Cliquez sur un cours pour voir plus de détails ou vous inscrire directement.</p>
     </div></div>
-    <div class="catalog-status" id="catalogStatus"><span class="pulse"></span><span id="catalogStatusText">Chajman kou yo...</span></div>
+    <div class="catalog-status" id="catalogStatus"><span class="pulse"></span><span id="catalogStatusText">Chargement des cours...</span></div>
     <div class="course-grid" id="courseGrid"></div>
   </div>
 </section>
@@ -269,18 +263,18 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
 <section class="section-white" id="inscription">
   <div class="wrap">
     <div class="section-head reveal-group"><div class="reveal-item">
-      <span class="eyebrow eyebrow-navy"><i></i>KIJAN POU ENSKRI</span>
-      <h2>Kat etap senp pou kòmanse.</h2>
+      <span class="eyebrow eyebrow-navy"><i></i>COMMENT S'INSCRIRE</span>
+      <h2>Quatre étapes simples pour commencer.</h2>
     </div></div>
     <div class="steps-list steps-5 reveal-group">
-      <div class="reveal-item step-card"><div class="step-num">01</div><h4>Chwazi kou ou</h4><p>Pran tan gade katalòg la anwo, chwazi jiska 3 fòmasyon.</p></div>
-      <div class="reveal-item step-card"><div class="step-num">02</div><h4>Ranpli fòm lan</h4><p>Fòm enskripsyon an liy lan pran mwens pase 10 minit.</p></div>
-      <div class="reveal-item step-card"><div class="step-num">03</div><h4>Fè tès evalyasyon</h4><p>Yon ti tès kout pou nou konnen nivo ou anvan kou yo kòmanse.</p></div>
-      <div class="reveal-item step-card"><div class="step-num">04</div><h4>Resevwa konfimasyon</h4><p>Ekip nou an verifye dosye a e kontakte w pou detay peman.</p></div>
-      <div class="reveal-item step-card"><div class="step-num">05</div><h4>Kòmanse aprann</h4><p>Konekte nan app mobil Loré Fondation pou swiv kou w yo.</p></div>
+      <div class="reveal-item step-card"><div class="step-num">01</div><h4>Choisissez votre cours</h4><p>Consultez le catalogue ci-dessus et sélectionnez jusqu'à 3 formations.</p></div>
+      <div class="reveal-item step-card"><div class="step-num">02</div><h4>Remplissez le formulaire</h4><p>Le formulaire d'inscription en ligne prend moins de 10 minutes.</p></div>
+      <div class="reveal-item step-card"><div class="step-num">03</div><h4>Passez le test d'évaluation</h4><p>Un court test pour connaître votre niveau avant le début des cours.</p></div>
+      <div class="reveal-item step-card"><div class="step-num">04</div><h4>Recevez la confirmation</h4><p>Notre équipe vérifie votre dossier et vous contacte pour les détails de paiement.</p></div>
+      <div class="reveal-item step-card"><div class="step-num">05</div><h4>Commencez à apprendre</h4><p>Connectez-vous à l'app mobile ou à l'Espace Étudiant pour suivre vos cours.</p></div>
     </div>
     <div style="text-align:center;margin-top:36px">
-      <a href="inscription-en-ligne.html" class="btn btn-royal">Ale nan fòm enskripsyon an</a>
+      <a href="inscription-en-ligne.html" class="btn btn-royal">Aller au formulaire d'inscription</a>
     </div>
   </div>
 </section>
@@ -289,19 +283,19 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
   <div class="wrap">
     <div class="contact-grid reveal-group">
       <div class="reveal-item">
-        <span class="eyebrow"><i></i>KONTAK</span>
-        <h2>Yon kesyon anvan ou enskri?</h2>
-        <p style="color:rgba(255,255,255,.7);font-size:15px;margin:14px 0 26px">Ekip Loré Fondation la disponib pou reponn ou sou orè, pri ak dokiman ki nesesè.</p>
+        <span class="eyebrow"><i></i>CONTACT</span>
+        <h2>Une question avant de vous inscrire?</h2>
+        <p style="color:rgba(255,255,255,.7);font-size:15px;margin:14px 0 26px">L'équipe de Loré Fondation est disponible pour répondre à vos questions sur les horaires, les tarifs et les documents nécessaires.</p>
         <div class="contact-list">
-          <div class="c-row"><span class="ico">📍</span>Cap-Haïtien, Ayiti</div>
+          <div class="c-row"><span class="ico">📍</span>Cap-Haïtien, Haïti</div>
           <div class="c-row"><span class="ico">📞</span>41 55 9094 · 39 93 4029</div>
           <div class="c-row"><span class="ico">🌐</span>www.lorefondation.com</div>
         </div>
       </div>
       <div class="reveal-item contact-card">
-        <h3>Pare pou kòmanse?</h3>
-        <p>Enskripsyon an liy lan ouvri — li pran mwens pase 10 minit.</p>
-        <a href="inscription-en-ligne.html" class="btn btn-cyan" style="width:100%">Enskri kounye a</a>
+        <h3>Prêt à commencer?</h3>
+        <p>L'inscription en ligne est ouverte — elle prend moins de 10 minutes.</p>
+        <a href="inscription-en-ligne.html" class="btn btn-cyan" style="width:100%">S'inscrire maintenant</a>
       </div>
     </div>
   </div>
@@ -310,12 +304,12 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
 <footer>
   <div class="wrap footer-inner">
     <span>© <span id="year"></span> Loré Fondation — Centre de Formation en Informatique</span>
-    <a href="test-evaluation.html">Tès evalyasyon</a>
+    <a href="test-evaluation.html">Test d'évaluation</a>
+    <a href="espas-elev.html">Espace Étudiant</a>
+    <a href="admin-cours.html" style="opacity:.6">Administration</a>
     <a href="https://www.lorefondation.com">www.lorefondation.com</a>
   </div>
 </footer>
-
-<div class="toast" id="toast"></div>
 
 <script>
 /* =========================================================================
@@ -324,8 +318,8 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
 const CONFIG = {
   SUPABASE_URL: "https://afvqvorexojvjpjxiabu.supabase.co",
   SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmdnF2b3JleG9qdmpwanhpYWJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwNjcwMzIsImV4cCI6MjA5OTY0MzAzMn0.8QTKR0NWUVesNTg58Sa-bpyfBqqVMCga-X8izf0qQzc",
-  // Nom (ou "code") du programme "Informatique & Bureautique" dans la table
-  // "programs" — utilisé pour filtrer le catalogue en direct.
+  // Nom du programme "Informatique & Bureautique" dans la table "programs"
+  // — utilisé pour filtrer le catalogue en direct.
   programNameMatch: "Informatique",
 };
 
@@ -334,7 +328,8 @@ const CONFIG = {
    n'est pas encore activé (voir schema_public_website_catalog_read.sql)
    ou (b) aucun cours "Informatique" n'est encore publié dans la base.
    Dès que la base répond, cette liste est automatiquement remplacée par
-   les vrais cours. Modifiez librement cette liste en attendant.
+   les vrais cours. Modifiez librement cette liste en attendant, ou
+   utilisez le panneau admin-cours.html.
    L'"id" de chaque cours correspond à celui utilisé dans
    inscription-en-ligne.html (tableau FORMATIONS) pour la présélection.
 ========================================================================= */
@@ -354,7 +349,7 @@ function courseCardHtml(c){
     <p class="desc">${escapeHtml(c.desc || "")}</p>
     ${c.schedule ? `<div class="c-meta">🗓️ ${escapeHtml(c.schedule)}</div>` : ""}
     <div class="c-actions">
-      <a href="inscription-en-ligne.html?formation=${encodeURIComponent(c.id)}" class="btn btn-royal">Enskri</a>
+      <a href="inscription-en-ligne.html?formation=${encodeURIComponent(c.id)}" class="btn btn-royal">S'inscrire</a>
     </div>
   </div>`;
 }
@@ -366,8 +361,8 @@ function renderCourses(list, isLive){
   const textEl = document.getElementById("catalogStatusText");
   statusEl.classList.toggle("is-live", isLive);
   textEl.textContent = isLive
-    ? "Kou yo ap chaje an dirèk soti nan Loré Fondation"
-    : "Lis tanporè — enskripsyon an mache kanmenm pandan n ap konfime pri ak orè final yo";
+    ? "Cours chargés en direct depuis Loré Fondation"
+    : "Liste provisoire — les inscriptions fonctionnent normalement pendant que les tarifs et horaires définitifs sont confirmés";
 }
 
 /* Essaie de charger le catalogue EN DIRECT depuis Supabase (programme
@@ -410,7 +405,7 @@ document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click", 
   document.getElementById("navLinks").classList.remove("mobile-open");
 }));
 
-/* ══ Scroll reveal ══ */
+/* ══ Apparition au défilement ══ */
 function initReveal(){
   const groups = document.querySelectorAll(".reveal-group");
   const io = new IntersectionObserver((entries)=>{
