@@ -161,6 +161,26 @@ section{padding:88px 0;position:relative}
 .step-card h4{font-size:15px;margin-bottom:6px}
 .step-card p{font-size:13px;color:var(--ink-600)}
 
+/* Espace Étudiant (accueil) */
+#espace-etudiant{background:#fff}
+.student-cta{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+@media(max-width:900px){.student-cta{grid-template-columns:1fr;gap:34px}}
+.student-cta h2{font-size:clamp(24px,3vw,34px);line-height:1.15;margin-bottom:14px}
+.student-cta p{color:var(--ink-600);font-size:15.5px;margin-bottom:22px;max-width:520px}
+.sc-points{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.sc-point{font-size:13px;font-weight:600;color:var(--navy-900);background:var(--blue-50);border:1px solid var(--line);padding:8px 14px;border-radius:999px}
+.sc-actions{display:flex;flex-wrap:wrap;gap:12px}
+.sc-visual{display:flex;justify-content:center}
+.sc-card{background:linear-gradient(150deg,var(--navy-950),var(--navy-800));border-radius:var(--radius-lg);padding:26px;width:100%;max-width:400px;color:#fff;box-shadow:var(--shadow-lg)}
+.sc-card-head{display:flex;gap:7px;margin-bottom:22px}
+.sc-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.22)}
+.sc-row{display:flex;justify-content:space-between;align-items:center;font-size:13.5px;margin-bottom:8px}
+.sc-row b{color:var(--cyan-400)}
+.sc-bar{height:7px;background:rgba(255,255,255,.14);border-radius:99px;overflow:hidden;margin-bottom:20px}
+.sc-bar span{display:block;height:100%;background:var(--cyan-400)}
+.sc-lesson{margin-top:6px;font-size:13px;font-weight:600;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.28);color:var(--cyan-300);padding:12px 14px;border-radius:12px}
+.sc-demo-note{text-align:center;font-size:11.5px;color:var(--ink-400);margin-top:10px}
+
 /* Contact */
 .section-navy{background:linear-gradient(160deg,var(--navy-950),var(--navy-900))}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
@@ -197,12 +217,12 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
       <a href="#cours">Nos programmes</a>
       <a href="#inscription">Inscription</a>
       <a href="test-evaluation.html">Test d'évaluation</a>
-      <a href="espas-elev.html">Espace Étudiant</a>
+      <a href="#espace-etudiant">Espace Étudiant</a>
       <a href="#contact">Contact</a>
     </nav>
-    <div class="nav-actions">
-      <a href="espas-elev.html" class="btn btn-ghost-dark btn-sm">Espace Étudiant</a>
-      <a href="inscription-en-ligne.html" class="btn btn-cyan btn-sm">S'inscrire</a>
+    <div class="nav-actions" id="navActions">
+      <a href="espas-elev.html" class="btn btn-ghost-dark btn-sm" id="navEspaceBtn">Espace Étudiant</a>
+      <a href="inscription-en-ligne.html" class="btn btn-cyan btn-sm" id="navInscrireBtn">S'inscrire</a>
       <button class="burger" id="burgerBtn" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -309,6 +329,38 @@ footer{background:var(--navy-950);color:rgba(255,255,255,.55);padding:36px 0;fon
     </div>
     <div style="text-align:center;margin-top:36px">
       <a href="inscription-en-ligne.html" class="btn btn-royal">Aller au formulaire d'inscription</a>
+    </div>
+  </div>
+</section>
+
+<section id="espace-etudiant">
+  <div class="wrap">
+    <div class="student-cta reveal-group">
+      <div class="reveal-item">
+        <span class="eyebrow eyebrow-navy"><i></i>DÉJÀ INSCRIT ?</span>
+        <h2 id="scHeading">Vos cours vous attendent dans votre Espace Étudiant.</h2>
+        <p id="scText">Suivez vos leçons en vidéo, téléchargez vos supports PDF, passez vos quiz, consultez votre progression et récupérez vos certificats — à tout moment, depuis votre téléphone ou votre ordinateur.</p>
+        <div class="sc-points" id="scPoints">
+          <span class="sc-point">🎬 Leçons vidéo et documents</span>
+          <span class="sc-point">📈 Suivi de votre progression</span>
+          <span class="sc-point">🎓 Certificats vérifiables</span>
+        </div>
+        <div class="sc-actions" id="scActions">
+          <a href="espas-elev.html" class="btn btn-royal">Accéder à mon Espace Étudiant</a>
+          <a href="inscription-en-ligne.html" class="btn btn-outline-navy">Je n'ai pas encore de compte</a>
+        </div>
+      </div>
+      <div class="reveal-item sc-visual">
+        <div class="sc-card" id="scCard">
+          <div class="sc-card-head"><span class="sc-dot"></span><span class="sc-dot"></span><span class="sc-dot"></span></div>
+          <div class="sc-row"><span>Informatique Bureautique</span><b>62%</b></div>
+          <div class="sc-bar"><span style="width:62%"></span></div>
+          <div class="sc-row"><span>Technique Informatique</span><b>28%</b></div>
+          <div class="sc-bar"><span style="width:28%"></span></div>
+          <div class="sc-lesson">▶ Reprendre : Les formules Excel avancées</div>
+        </div>
+        <p class="sc-demo-note" id="scDemoNote">Exemple d'aperçu — connectez-vous pour voir votre vraie progression.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -452,6 +504,87 @@ window.addEventListener("DOMContentLoaded", ()=>{
   loadLiveCatalog();
   initReveal();
 });
+</script>
+
+<!-- =========================================================================
+     CONNEXION AVEC L'ESPACE ÉTUDIANT
+     Si la personne est déjà connectée (même session Supabase que
+     espas-elev.html, partagée automatiquement car même origine), la
+     section "Déjà inscrit ?" ci-dessus arrête d'être une simple maquette
+     et affiche ses VRAIS cours et sa VRAIE progression. La navigation
+     s'adapte aussi (le bouton "S'inscrire" disparaît, remplacé par son nom).
+     Si personne n'est connecté, la maquette générique reste affichée telle
+     quelle — rien ne change pour un visiteur non identifié.
+========================================================================= -->
+<script type="module">
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+const SUPABASE_URL = "https://afvqvorexojvjpjxiabu.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmdnF2b3JleG9qdmpwanhpYWJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQwNjcwMzIsImV4cCI6MjA5OTY0MzAzMn0.8QTKR0NWUVesNTg58Sa-bpyfBqqVMCga-X8izf0qQzc";
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function escapeHtml(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m])); }
+async function safe(promise, fallback){ try{ const { data, error } = await promise; return error ? fallback : (data ?? fallback); }catch(e){ return fallback; } }
+
+(async function personalize(){
+  const { data:{ session } } = await supabase.auth.getSession();
+  if(!session) return; // visiteur non connecté : on laisse la maquette générique
+
+  const user = session.user;
+  const profile = await safe(supabase.from("profiles").select("full_name").eq("id", user.id).maybeSingle(), null);
+  const firstName = (profile?.full_name || user.email || "").split(" ")[0];
+
+  // Nav : remplace "S'inscrire" par le nom de l'étudiant, qui mène à son espace
+  const inscrireBtn = document.getElementById("navInscrireBtn");
+  if(inscrireBtn){
+    inscrireBtn.textContent = `👋 ${firstName}`;
+    inscrireBtn.href = "espas-elev.html";
+  }
+  const espaceBtn = document.getElementById("navEspaceBtn");
+  if(espaceBtn) espaceBtn.textContent = "Mon espace";
+
+  // Récupère les cours réels + calcule la progression réelle de chacun
+  const enrollments = await safe(supabase.from("enrollments").select("course_id, courses(id,name)").eq("student_id", user.id), []);
+  const courses = (enrollments || []).map(e => e.courses).filter(Boolean);
+
+  document.getElementById("scHeading").textContent = `Bon retour, ${firstName} 👋`;
+  document.getElementById("scText").textContent = courses.length
+    ? "Reprenez vos cours là où vous vous êtes arrêté(e), suivez votre progression et accédez à vos certificats."
+    : "Votre compte est prêt. Dès que vous serez inscrit(e) à un cours, il apparaîtra ici avec votre progression.";
+  document.getElementById("scActions").innerHTML = `<a href="espas-elev.html" class="btn btn-royal">Continuer mes cours →</a>`;
+  document.getElementById("scDemoNote").classList.add("hidden");
+
+  const card = document.getElementById("scCard");
+  if(!courses.length){
+    card.innerHTML = `<div class="sc-card-head"><span class="sc-dot"></span><span class="sc-dot"></span><span class="sc-dot"></span></div>
+      <p style="font-size:13.5px;color:rgba(255,255,255,.75);line-height:1.5">Aucun cours associé à votre compte pour le moment. Contactez Loré Fondation si vous pensez qu'il s'agit d'une erreur.</p>`;
+    return;
+  }
+
+  // Calcule la progression réelle (via la même fonction que l'Espace Étudiant)
+  // et repère la première leçon non terminée pour l'afficher comme "reprise".
+  let nextLessonTitle = null;
+  const rows = [];
+  for(const c of courses.slice(0, 3)){
+    const pct = await safe(supabase.rpc("get_course_progress", { p_course_id: c.id, p_student_id: user.id }), 0);
+    rows.push({ name: c.name, pct: pct || 0 });
+
+    if(!nextLessonTitle){
+      const modules = await safe(supabase.from("course_modules").select("id").eq("course_id", c.id).order("month_number").order("order_index"), []);
+      for(const m of (modules || [])){
+        const lessons = await safe(supabase.from("lessons").select("id,title").eq("module_id", m.id).eq("is_published", true).order("order_index"), []);
+        for(const l of (lessons || [])){
+          const done = await safe(supabase.from("lesson_progress").select("is_completed").eq("student_id", user.id).eq("lesson_id", l.id).maybeSingle(), null);
+          if(!done?.is_completed){ nextLessonTitle = l.title; break; }
+        }
+        if(nextLessonTitle) break;
+      }
+    }
+  }
+
+  card.innerHTML = `<div class="sc-card-head"><span class="sc-dot"></span><span class="sc-dot"></span><span class="sc-dot"></span></div>` +
+    rows.map(r => `<div class="sc-row"><span>${escapeHtml(r.name)}</span><b>${r.pct}%</b></div><div class="sc-bar"><span style="width:${r.pct}%"></span></div>`).join("") +
+    (nextLessonTitle ? `<div class="sc-lesson">▶ Reprendre : ${escapeHtml(nextLessonTitle)}</div>` : "");
+})();
 </script>
 </body>
 </html>
